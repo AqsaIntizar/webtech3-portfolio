@@ -1,5 +1,16 @@
+html{
+  overflow: hidden;
+}
+
 body{
     background-color: black;
+    margin-left:-100%;
+    transition: 15s;
+    transition-timing-function: linear;
+    width:100%;
+}
+.move{
+  margin-left:100%;
 }
 h1{
     color: white;
