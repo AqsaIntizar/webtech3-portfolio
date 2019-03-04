@@ -1,0 +1,23 @@
+#photos{
+    display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+}
+img{
+    margin:15px;
+    width: 350px;
+}
+@media screen and (min-width: 800px) {
+  #photos{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+}
+    
+}
