@@ -1,5 +1,5 @@
 #photos{
-    display: flex;
+  display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -10,6 +10,30 @@ img{
     margin:15px;
     width: 350px;
 }
+a{
+  margin: 60px;
+   
+}
+
+.nav{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0px auto;
+  width: 100%;
+}
+.title{
+    text-align: center;
+    width: 100%;
+}
+
+
+
+
+
 @media screen and (min-width: 800px) {
   #photos{
   display: flex;
@@ -18,6 +42,26 @@ img{
   justify-content: center;
   align-items: flex-start;
   align-content: center;
+  margin: 20px;
 }
-    
+   
+.nav{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items:center;
+  align-content:space-around;
+  width:100%;
+}
+.title{
+  width: 30px;
+}
+.ui {order: 3;}
+div.typo {order: 3;}
+div.brand {order: 1;}
+div.graf {order: 1;}
+.title{order:2;
+    }
+ 
 }
