@@ -28,7 +28,11 @@ class Wheater {
             return response.json();
         })
         .then(json =>{
-        console.log(json.currently.summary)
+        console.log(json.currently.summary);
+        //document.write(json.currently.summary);
+        document.getElementById("weather").innerHTML = json.currently.summary;
+        
+
         });
 
     }
@@ -50,7 +54,18 @@ class Weapons{
             return response.json();
         })
         .then(json =>{
-        console.log(json)
+        //console.log(json)
+
+        //document.write(json[1].name);
+        document.getElementById("weapon").innerHTML =json[1].name;
+
+
+       //document.write(json[1]['images'].background);
+       let img = document.createElement("img");
+       img.src = json[1]['images'].background;
+
+       document.body.appendChild(img);
+       //document.getElementsByClassName("img").src = json[1]['images'].background;
         });
 
     }
