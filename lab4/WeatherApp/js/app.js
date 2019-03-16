@@ -49,7 +49,7 @@ class Weapons{
     }
     getWeapon(){
 
-        let url = `https://cors-anywhere.herokuapp.com/https://fortnite-public-api.theapinetwork.com/prod09/items/list`;
+        let url = `https://fortnite-public-api.theapinetwork.com/prod09/items/list`;
         fetch(url).then(response=>{
             return response.json();
         })
@@ -73,5 +73,5 @@ class Weapons{
 
 }
 
-let app = new Wheater("31c4c7fa5f82269dbea3c6a366e4704b");
+let app = new Wheater("a9c631d92a9d8d526bed623981caa1b6");
 let app2 = new Weapons();
