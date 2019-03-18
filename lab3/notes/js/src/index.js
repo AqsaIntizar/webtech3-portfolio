@@ -6,7 +6,7 @@ class Note {
   
   createElement(title){
     let newNote = document.createElement('div');
-    let a = document.getElementsByName('a');
+    newNote.setAttribute("class", "card");
 
     a.addEventListener('click', this.remove.bind(newNote));
     
