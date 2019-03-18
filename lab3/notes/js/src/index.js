@@ -110,20 +110,20 @@ class App{
   }
 
   loadNotesFromStorage() {
-    //Als object van de local storage niet het zelfde type of waarde heeft  dan..
-    if (localStorage.getItem("note") !== null) {
-      //store in variable
-      let saveNote = localStorage.getItem("note");
-      //local storage verkrijgt geen array alleen een string
-      saveNote = JSON.parse(saveNote);
-
-      //forloop
-      for (let addNote of saveNote) {
-          let note = new Note(addNote);
-          //refereert naar een functie
-          note.add();
+    //als het uit note uit de localstorage komt dan...
+    if (localStorage.getItem("note")) {
+      //put the data in a let 
+      let titlesStored = JSON.parse(localStorage.getItem("note"));
+      //make a for loop to loop all the notes 
+      for (let i = 0; i < titlesStored.length; i++) {
+        let noteGetFromStorage = new Note(titlesStored[i]);
+        //add this to the function add()
+        noteGetFromStorage.add();
       }
-  }
+    } else {
+
+      console.log("something went wrong");
+    }
  
   }
 
