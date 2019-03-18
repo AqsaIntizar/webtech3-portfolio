@@ -72,7 +72,7 @@ class Note {
     //Get the title by tag name
     let cardtitle = this.getElementsByTagName("p")[0].innerHTML;
     //Get the index of the title
-    var index = storedtitle.indexOf(cardtitle);
+    let index = storedtitle.indexOf(cardtitle);
     //als de variable bestaat
     if (index != -1) {
     //splice() past de inhoud van een array aan door bestaande elementen te verwijderen en/of nieuwe elementen toe te voegen.
