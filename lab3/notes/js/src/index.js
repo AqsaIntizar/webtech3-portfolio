@@ -68,7 +68,7 @@ class Note {
     //verwijder het geselecteerde object 
     this.parentNode.removeChild(this);
     //get the saved notes
-    let storedtitle = JSON.parse(localStorage.getItem("saveNotesToStorage"));
+    let storedtitle = JSON.parse(localStorage.getItem("note"));
     //Get the title by tag name
     let cardtitle = this.getElementsByTagName("p")[0].innerHTML;
     //Get the index of the title
@@ -78,7 +78,7 @@ class Note {
     //splice() past de inhoud van een array aan door bestaande elementen te verwijderen en/of nieuwe elementen toe te voegen.
     storedtitle.splice(index, 1);
     //voegt het toe aan de local storage met setItem
-    localStorage.setItem("saveNotesToStorage", JSON.stringify(storedtitle));
+    localStorage.setItem("note", JSON.stringify(storedtitle));
     };
 
 }
@@ -91,7 +91,20 @@ class App{
   }
 
   loadNotesFromStorage() {
+    //Als object van de local storage niet het zelfde type of waarde heeft  dan..
+    if (localStorage.getItem("note") !== null) {
+      //store in variable
+      let saveNote = localStorage.getItem("note");
+      //local storage verkrijgt geen array alleen een string
+      saveNote = JSON.parse(saveNote);
 
+      //forloop
+      for (let addNote of saveNote) {
+          let note = new Note(addNote);
+          //function added
+          note.add();
+      }
+  }
  
   }
 
