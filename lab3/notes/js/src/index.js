@@ -87,6 +87,25 @@ class Note {
 class App{
   constructor() {
       console.log("👊🏼 The Constructor!");
+      
+      //get the add note button
+      let btnAdd = document.querySelector("#btnAddNote");
+      //add addEventListener to the button 
+      //add the createNote function 
+      btnAdd.addEventListener("click", this.createNote.bind(this));
+
+
+      //get the input 
+      let addNote = document.getElementById("txtAddNote");
+        // let it work with enter
+        addNote.addEventListener("keyup", function (e) {
+            if (e.keyCode === 13) {
+                btnAdd.click();
+            }
+            e.preventDefault();
+        });
+        //refereert naar een functie
+        this.loadNotesFromStorage();
 
   }
 
@@ -101,7 +120,7 @@ class App{
       //forloop
       for (let addNote of saveNote) {
           let note = new Note(addNote);
-          //function added
+          //refereert naar een functie
           note.add();
       }
   }
