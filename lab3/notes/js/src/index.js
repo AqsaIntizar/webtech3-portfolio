@@ -1,96 +1,92 @@
 class Note {
   constructor(title) {
-   this.title = title;
-   this.element = this.createElement(title);
+      this.title = title;
+      this.element = this.createElement(title);
   }
-  
+
   createElement(title){
-    //create the note
-    let newNote = document.createElement('div');
-    //add a class to your note
-    newNote.setAttribute("class", "card");
+      //create a note
+      let newNote = document.createElement('div');
+      //give the note a class
+      newNote.setAttribute("class", "card");
 
 
-    //create the title of the note
-    let note_titel = document.createElement("p");
-    //add a class to your title
-    note_titel.setAttribute("class", "titleNote");
-    //give your title a value
-    note_titel.innerHTML = title;
-    //add your titel to your note
-    newNote.appendChild(note_title);
+      //Create a title with a p tag
+      let noteTitle = document.createElement("p");
+      //Give the title a class
+      noteTitle.setAttribute("class", "note-title");
+      //set the value from the title to the input
+      noteTitle.innerHTML = title;
+      //add the title to note
+      newNote.appendChild(noteTitle);
 
 
-    //create the remove link
-    let a = document.createElement("a");
-    //add a class to your remove link
-    a.setAttribute("class", "card-remove");
-    //add a "href" to your link so it will become a link and give it a direction
-    a.setAttribute("href", "#");
-    //give your link a value
-    a.innerHTML = "remove";
-    //add your link to your note
-    newNote.appendChild(a);
+      //create a remove link
+      let a = document.createElement('a');
+      //Give the link a href to give it a direction
+      a.setAttribute("href", "#");
+      //Give the link a class
+      a.setAttribute("class", "card-remove");
+      //Give the link a value
+      a.innerHTML = "Remove";
+      //add the link to new note
+      newNote.appendChild(a);
+      //1.voert functie remove() uit om het te verwijderen
+      //2.bind=> vebind het met de geselecteerde note en wordt alleen daarop uitgevoerd
+      a.addEventListener('click', this.remove.bind(newNote));
 
-    //1.voert functie remove() uit om het te verwijderen
-    //2.bind=> vebind het met de geselecteerde note en wordt alleen daarop uitgevoerd
-    a.addEventListener('click', this.remove.bind(newNote));
-
-    //return de volledige note
-    return newNote;
+      //return de volledige note (met de titel en remove link)
+      return newNote;
   }
-  
+
   add(){
-    //add the new notes to the other notes
-    document.querySelector(".notes").appendChild(this.element)
+      //add the new note to the other notes 
+      document.querySelector(".notes").appendChild(this.element);
   }
-  
-  saveToStorage(){
-    
-    // HINT🤩
-    // localStorage only supports strings, not arrays
-    // if you want to store arrays, look at JSON.parse and JSON.stringify
-  }
-  
-  remove(){
-    // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
-    // in this function, 'this' will refer to the current note element
-  } 
-}
 
-class App {
+  saveToStorage(){
+
+      //new array 
+      let saveNotesToStorage = [];
+      //een localStorage geraakt niet aan een array alleen aan een string
+      let transformAllNotes = JSON.parse(localStorage.getItem("saveNotesToStorage"));
+      //Als het type en de waarde hetzelde zijn dan...
+      if (localStorage.getItem("saveNotesToStorage") === null) {
+          //push() adds an Item to the end of the array (het is een lege Array dus het voegt niks toe)
+          saveNotesToStorage.push(this.title);
+          //voegt het toe aan de local storage met setItem
+          localStorage.setItem("saveNotesToStorage", JSON.stringify(saveNotesToStorage));
+      } else {
+          //push() adds an Item to the end of the array (voegt de input toe aan de array
+          transformAllNotes.push(this.title);
+          //voegt het toe aan de local storage met setItem
+          localStorage.setItem("saveNotesToStorage", JSON.stringify(transformAllNotes));
+      }
+  }
+
+  remove(){
+
+}
+/* End of Node Class*/
+}
+class App{
   constructor() {
-    console.log("👊🏼 The Constructor!");
-  
-    // HINT🤩
-    // clicking the button should work
-    // pressing the enter key should also work
-    // this.btnAdd = ???
-    // this.btnAdd.addEventListener("click", this.createNote.bind(this));
-    // this.loadNotesFromStorage();
+      console.log("👊🏼 The Constructor!");
+
   }
-  
+
   loadNotesFromStorage() {
-    // HINT🤩
-    // load all notes from storage here and add them to the screen
-    // something like note.add() in a loop would be nice
+
+ 
   }
-   
-  createNote(e){
-    // this function should create a new note by using the Note() class
-    
-    // HINT🤩
-    // note.add();
-    // note.saveToStorage();
-    // this.reset();
+
+  createNote() {
+
   }
-  
-  reset(){
-    // this function should reset the form 
+
+  resetInputField() {
+
   }
-  
 }
 
 let app = new App();
-
-
