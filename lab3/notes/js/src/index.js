@@ -47,27 +47,27 @@ class Note {
   saveToStorage(){
 
       //new array 
-      let saveNotesToStorage = [];
+      let notesStorage = [];
       //een localStorage geraakt niet aan een array alleen aan een string
-      let transformAllNotes = JSON.parse(localStorage.getItem("saveNotesToStorage"));
+      let saveNote = JSON.parse(localStorage.getItem("note"));
       //Als het type en de waarde hetzelde zijn dan...
-      if (localStorage.getItem("saveNotesToStorage") === null) {
+      if (localStorage.getItem("note") === null) {
           //push() adds an Item to the end of the array (het is een lege Array dus het voegt niks toe)
-          saveNotesToStorage.push(this.title);
+          notesStorage.push(this.title);
           //voegt het toe aan de local storage met setItem
-          localStorage.setItem("saveNotesToStorage", JSON.stringify(saveNotesToStorage));
+          localStorage.setItem("note", JSON.stringify(notesStorage));
       } else {
           //push() adds an Item to the end of the array (voegt de input toe aan de array
-          transformAllNotes.push(this.title);
+          saveNote.push(this.title);
           //voegt het toe aan de local storage met setItem
-          localStorage.setItem("saveNotesToStorage", JSON.stringify(transformAllNotes));
+          localStorage.setItem("note", JSON.stringify(saveNote));
       }
   }
 
   remove(){
-
+    
 }
-/* End of Node Class*/
+
 }
 class App{
   constructor() {
