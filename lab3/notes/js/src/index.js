@@ -141,12 +141,14 @@ class App{
         //call the functions
         note.add();
         note.saveToStorage();
+        note.resetInputField();
     }
 
   }
 
   resetInputField() {
-
+    let inputField = document.querySelector("#txtAddNote");
+    inputField.value = '';
   }
 }
 
