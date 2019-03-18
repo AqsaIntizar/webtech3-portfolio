@@ -96,6 +96,20 @@ class App{
   }
 
   createNote() {
+    //get the value from the textfield
+    let addNote = document.getElementById("txtAddNote").value;
+
+    //if the textfield is empty...
+    if (addNote === "") {
+        //give an alert 
+        alert("You must type something!")
+    } else {
+
+        let note = new Note(addNote);
+        //call the functions
+        note.add();
+        note.saveToStorage();
+    }
 
   }
 
