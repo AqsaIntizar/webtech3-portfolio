@@ -131,24 +131,26 @@ class App{
     //get the value from the textfield
     let addNote = document.getElementById("txtAddNote").value;
 
-    //if the textfield is empty...
-    if (addNote === "") {
-        //give an alert 
-        alert("You must type something!")
-    } else {
-
+    //if the textfield is empty... and has the same type
+    if (addNote !== "") {
+        
         let note = new Note(addNote);
         //call the functions
         note.add();
         note.saveToStorage();
-        note.resetInputField();
-    }
+        this.resetInputField();
+    } 
+    
+    else {
+        //print in console 
+        console.log('string is empty');
+          }
 
   }
 
   resetInputField() {
-    let inputField = document.querySelector("#txtAddNote");
-    inputField.value = '';
+    //set the text input to an empty string
+   document.querySelector("#txtAddNote").value = '';
   }
 }
 
